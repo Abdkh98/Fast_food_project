@@ -348,6 +348,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="sqlDB.sql" />
     <None Include="Resources\category-23-128.png" />
     <None Include="Resources\alert-19-64.png" />
     <None Include="Resources\users-solid-256.png" />
