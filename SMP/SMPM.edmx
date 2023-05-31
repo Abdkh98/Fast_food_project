@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DB_SMPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cat_Cover" Type="image" />
+        </EntityType>
+        <EntityType Name="Purchases">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cat_id" Type="int" />
+          <Property Name="Supp_id" Type="int" />
+          <Property Name="Pur_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pur_Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pur_Cat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pur_Supp" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pur_Det" Type="nvarchar" MaxLength="50" />
+          <Property Name="Pur_Buy" Type="float" />
+          <Property Name="Pur_Sell" Type="float" />
+          <Property Name="Pur_Qt" Type="float" />
+          <Property Name="Pur_Tsell" Type="float" />
+          <Property Name="Pur_Tbuy" Type="float" />
+          <Property Name="Pur_TRev" Type="float" />
+        </EntityType>
+        <EntityType Name="Sells">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sell_nameItem" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sell_nameClient" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sell_Price" Type="float" />
+          <Property Name="Sell_Qt" Type="float" />
+          <Property Name="Sell_TPrice" Type="float" />
+          <Property Name="Sell_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Supp_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Supp_image" Type="image" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Pass" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_Roll" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_State" Type="nvarchar" MaxLength="50" />
+          <Property Name="User_image" Type="image" />
+        </EntityType>
+        <Association Name="FK_Purchases_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Suppliers">
+          <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="0..1" />
+          <End Role="Purchases" Type="Self.Purchases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchases">
+              <PropertyRef Name="Supp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DB_SMPModelStoreContainer">
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purchases" EntityType="Self.Purchases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sells" EntityType="Self.Sells" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Purchases_Category" Association="Self.FK_Purchases_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Suppliers" Association="Self.FK_Purchases_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Purchases" EntitySet="Purchases" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_SMPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DB_SMPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="DB_SMPModel.Category" />
+          <EntitySet Name="Purchases" EntityType="DB_SMPModel.Purchase" />
+          <EntitySet Name="Suppliers" EntityType="DB_SMPModel.Supplier" />
+          <AssociationSet Name="FK_Purchases_Category" Association="DB_SMPModel.FK_Purchases_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Purchases_Suppliers" Association="DB_SMPModel.FK_Purchases_Suppliers">
+            <End Role="Supplier" EntitySet="Suppliers" />
+            <End Role="Purchase" EntitySet="Purchases" />
+          </AssociationSet>
+          <EntitySet Name="Sells" EntityType="DB_SMPModel.Sell" />
+          <EntitySet Name="Users" EntityType="DB_SMPModel.User" />
+        </EntityContainer>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cat_Cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Purchases" Relationship="DB_SMPModel.FK_Purchases_Category" FromRole="Category" ToRole="Purchase" />
+        </EntityType>
+        <EntityType Name="Purchase">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cat_id" Type="Int32" />
+          <Property Name="Supp_id" Type="Int32" />
+          <Property Name="Pur_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pur_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pur_Cat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pur_Supp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pur_Det" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Pur_Buy" Type="Double" />
+          <Property Name="Pur_Sell" Type="Double" />
+          <Property Name="Pur_Qt" Type="Double" />
+          <Property Name="Pur_Tsell" Type="Double" />
+          <Property Name="Pur_Tbuy" Type="Double" />
+          <Property Name="Pur_TRev" Type="Double" />
+          <NavigationProperty Name="Category" Relationship="DB_SMPModel.FK_Purchases_Category" FromRole="Purchase" ToRole="Category" />
+          <NavigationProperty Name="Supplier" Relationship="DB_SMPModel.FK_Purchases_Suppliers" FromRole="Purchase" ToRole="Supplier" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Supp_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Supp_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Purchases" Relationship="DB_SMPModel.FK_Purchases_Suppliers" FromRole="Supplier" ToRole="Purchase" />
+        </EntityType>
+        <Association Name="FK_Purchases_Category">
+          <End Type="DB_SMPModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="DB_SMPModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Purchases_Suppliers">
+          <End Type="DB_SMPModel.Supplier" Role="Supplier" Multiplicity="0..1" />
+          <End Type="DB_SMPModel.Purchase" Role="Purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Purchase">
+              <PropertyRef Name="Supp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Sell">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sell_nameItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sell_nameClient" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sell_Price" Type="Double" />
+          <Property Name="Sell_Qt" Type="Double" />
+          <Property Name="Sell_TPrice" Type="Double" />
+          <Property Name="Sell_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Roll" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_State" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_image" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_SMPModelStoreContainer" CdmEntityContainer="DB_SMPEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DB_SMPModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="Cat_Cover" ColumnName="Cat_Cover" />
+                <ScalarProperty Name="CAT_Name" ColumnName="CAT_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purchases">
+            <EntityTypeMapping TypeName="DB_SMPModel.Purchase">
+              <MappingFragment StoreEntitySet="Purchases">
+                <ScalarProperty Name="Pur_TRev" ColumnName="Pur_TRev" />
+                <ScalarProperty Name="Pur_Tbuy" ColumnName="Pur_Tbuy" />
+                <ScalarProperty Name="Pur_Tsell" ColumnName="Pur_Tsell" />
+                <ScalarProperty Name="Pur_Qt" ColumnName="Pur_Qt" />
+                <ScalarProperty Name="Pur_Sell" ColumnName="Pur_Sell" />
+                <ScalarProperty Name="Pur_Buy" ColumnName="Pur_Buy" />
+                <ScalarProperty Name="Pur_Det" ColumnName="Pur_Det" />
+                <ScalarProperty Name="Pur_Supp" ColumnName="Pur_Supp" />
+                <ScalarProperty Name="Pur_Cat" ColumnName="Pur_Cat" />
+                <ScalarProperty Name="Pur_Type" ColumnName="Pur_Type" />
+                <ScalarProperty Name="Pur_name" ColumnName="Pur_name" />
+                <ScalarProperty Name="Supp_id" ColumnName="Supp_id" />
+                <ScalarProperty Name="Cat_id" ColumnName="Cat_id" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="DB_SMPModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="Supp_image" ColumnName="Supp_image" />
+                <ScalarProperty Name="Supp_Email" ColumnName="Supp_Email" />
+                <ScalarProperty Name="Supp_Phone" ColumnName="Supp_Phone" />
+                <ScalarProperty Name="Supp_Name" ColumnName="Supp_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sells">
+            <EntityTypeMapping TypeName="DB_SMPModel.Sell">
+              <MappingFragment StoreEntitySet="Sells">
+                <ScalarProperty Name="Sell_Date" ColumnName="Sell_Date" />
+                <ScalarProperty Name="Sell_TPrice" ColumnName="Sell_TPrice" />
+                <ScalarProperty Name="Sell_Qt" ColumnName="Sell_Qt" />
+                <ScalarProperty Name="Sell_Price" ColumnName="Sell_Price" />
+                <ScalarProperty Name="Sell_nameClient" ColumnName="Sell_nameClient" />
+                <ScalarProperty Name="Sell_nameItem" ColumnName="Sell_nameItem" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="DB_SMPModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="User_image" ColumnName="User_image" />
+                <ScalarProperty Name="User_State" ColumnName="User_State" />
+                <ScalarProperty Name="User_Roll" ColumnName="User_Roll" />
+                <ScalarProperty Name="User_Pass" ColumnName="User_Pass" />
+                <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

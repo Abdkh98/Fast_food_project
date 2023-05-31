@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4eddf6763d0b413ca8a841ac23448af3" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_SMPModel.Category" Width="1.5" PointX="0.75" PointY="4" />
+        <EntityTypeShape EntityType="DB_SMPModel.Purchase" Width="1.5" PointX="3" PointY="2.75" />
+        <EntityTypeShape EntityType="DB_SMPModel.Supplier" Width="1.5" PointX="0.75" PointY="0.75" />
+        <AssociationConnector Association="DB_SMPModel.FK_Purchases_Category" />
+        <AssociationConnector Association="DB_SMPModel.FK_Purchases_Suppliers" />
+        <EntityTypeShape EntityType="DB_SMPModel.Sell" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DB_SMPModel.User" Width="1.5" PointX="5.375" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
