@@ -55,23 +55,13 @@ namespace SMP
 
         
 
-        private void btn_Home_Click(object sender, EventArgs e)
-        {
-            pn_cont.Controls.Clear();
-            pn_cont.Controls.Add(frm_home.pn_Home);
-        }
+       
 
        
 
        
 
-        private void btn_Category_Click_1(object sender, EventArgs e)
-        {
-            pn_cont.Controls.Clear();
-            pn_cont.Controls.Add(frm_category.pn_Category);
-            db = new DB_SMPEntities();
-            lb_titlepage.Text = "Categories";
-        }
+       
 
        
 
@@ -113,25 +103,9 @@ namespace SMP
             pn_cont.Controls.Add(frm_sell.pn_Category);
         }
 
-        private void btn_Suppliers_Click(object sender, EventArgs e)
-        {
-            pn_cont.Controls.Clear();
-            pn_cont.Controls.Add(frm_supp.pn_Category);
-            db = new DB_SMPEntities();
-            lb_titlepage.Text = "Suppliers";
-            frm_supp.update_data();
+        
 
 
-        }
-
-        private void btn_Purchases_Click(object sender, EventArgs e)
-        {
-            pn_cont.Controls.Clear();
-            pn_cont.Controls.Add(frm_pur.pn_Category);
-            db = new DB_SMPEntities();
-            lb_titlepage.Text = "Purchases";
-            frm_pur.update_data();
-        }
 
         private void btn_Sales_Click(object sender, EventArgs e)
         {
@@ -141,21 +115,9 @@ namespace SMP
             lb_titlepage.Text = "Sales";
         }
 
-        private void btn_Reports_Click(object sender, EventArgs e)
-        {
-            pn_cont.Controls.Clear();
-            pn_cont.Controls.Add(frm_report.panel1);
-     
-            lb_titlepage.Text = "Report";
-        }
+        
 
-        private void btn_Users_Click(object sender, EventArgs e)
-        {
-            pn_cont.Controls.Clear();
-            pn_cont.Controls.Add(frm_users.pn_Category);
-
-            lb_titlepage.Text = "Users";
-        }
+       
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
