@@ -32,34 +32,34 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.pn_navbar = new System.Windows.Forms.Panel();
+            this.btn_Users = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Reports = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Sales = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Purchases = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_Suppliers = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Category = new DevExpress.XtraEditors.SimpleButton();
             this.btn_Home = new DevExpress.XtraEditors.SimpleButton();
             this.pn_headernavbar = new System.Windows.Forms.Panel();
             this.pn_titlenav = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblRoll = new System.Windows.Forms.Label();
             this.lblusername = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btn_collapse = new DevExpress.XtraEditors.SimpleButton();
             this.pn_cont = new System.Windows.Forms.Panel();
             this.pn_topnav = new System.Windows.Forms.Panel();
-            this.lb_titlepage = new System.Windows.Forms.Label();
-            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.btn_min = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_max = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_colse = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Users = new DevExpress.XtraEditors.SimpleButton();
-            this.btn_Suppliers = new DevExpress.XtraEditors.SimpleButton();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_collapse = new DevExpress.XtraEditors.SimpleButton();
             this.btnLogOut = new DevExpress.XtraEditors.SimpleButton();
+            this.btn_max = new DevExpress.XtraEditors.SimpleButton();
+            this.lb_titlepage = new System.Windows.Forms.Label();
+            this.btn_colse = new DevExpress.XtraEditors.SimpleButton();
+            this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.pn_navbar.SuspendLayout();
             this.pn_headernavbar.SuspendLayout();
             this.pn_titlenav.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.pn_topnav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pn_navbar
@@ -78,6 +78,21 @@
             this.pn_navbar.Name = "pn_navbar";
             this.pn_navbar.Size = new System.Drawing.Size(188, 516);
             this.pn_navbar.TabIndex = 1;
+            // 
+            // btn_Users
+            // 
+            this.btn_Users.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Users.Appearance.ForeColor = System.Drawing.Color.Gray;
+            this.btn_Users.Appearance.Options.UseFont = true;
+            this.btn_Users.Appearance.Options.UseForeColor = true;
+            this.btn_Users.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Users.ImageOptions.Image")));
+            this.btn_Users.Location = new System.Drawing.Point(0, 395);
+            this.btn_Users.Name = "btn_Users";
+            this.btn_Users.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_Users.Size = new System.Drawing.Size(185, 33);
+            this.btn_Users.TabIndex = 8;
+            this.btn_Users.Text = "Users";
+            this.btn_Users.Click += new System.EventHandler(this.btn_Users_Click);
             // 
             // btn_Reports
             // 
@@ -123,6 +138,21 @@
             this.btn_Purchases.TabIndex = 4;
             this.btn_Purchases.Text = "Purchases";
             this.btn_Purchases.Click += new System.EventHandler(this.btn_Purchases_Click);
+            // 
+            // btn_Suppliers
+            // 
+            this.btn_Suppliers.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Suppliers.Appearance.ForeColor = System.Drawing.Color.Gray;
+            this.btn_Suppliers.Appearance.Options.UseFont = true;
+            this.btn_Suppliers.Appearance.Options.UseForeColor = true;
+            this.btn_Suppliers.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Suppliers.ImageOptions.Image")));
+            this.btn_Suppliers.Location = new System.Drawing.Point(0, 239);
+            this.btn_Suppliers.Name = "btn_Suppliers";
+            this.btn_Suppliers.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_Suppliers.Size = new System.Drawing.Size(185, 33);
+            this.btn_Suppliers.TabIndex = 3;
+            this.btn_Suppliers.Text = "Suppliers";
+            this.btn_Suppliers.Click += new System.EventHandler(this.btn_Suppliers_Click);
             // 
             // btn_Category
             // 
@@ -175,6 +205,16 @@
             this.pn_titlenav.Size = new System.Drawing.Size(142, 159);
             this.pn_titlenav.TabIndex = 1;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(16, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(101, 106);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblRoll
             // 
             this.lblRoll.AutoSize = true;
@@ -196,6 +236,7 @@
             this.lblusername.Size = new System.Drawing.Size(129, 29);
             this.lblusername.TabIndex = 6;
             this.lblusername.Text = "Abdallah Khader";
+            this.lblusername.Click += new System.EventHandler(this.lblusername_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -205,6 +246,18 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(46, 159);
             this.flowLayoutPanel1.TabIndex = 1;
+            // 
+            // btn_collapse
+            // 
+            this.btn_collapse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_collapse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_collapse.ImageOptions.Image")));
+            this.btn_collapse.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btn_collapse.Location = new System.Drawing.Point(3, 3);
+            this.btn_collapse.Name = "btn_collapse";
+            this.btn_collapse.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btn_collapse.Size = new System.Drawing.Size(36, 38);
+            this.btn_collapse.TabIndex = 7;
+            this.btn_collapse.Click += new System.EventHandler(this.btn_collapse_Click);
             // 
             // pn_cont
             // 
@@ -230,23 +283,6 @@
             this.pn_topnav.Size = new System.Drawing.Size(702, 41);
             this.pn_topnav.TabIndex = 0;
             // 
-            // lb_titlepage
-            // 
-            this.lb_titlepage.AutoSize = true;
-            this.lb_titlepage.ForeColor = System.Drawing.Color.Silver;
-            this.lb_titlepage.Location = new System.Drawing.Point(248, 4);
-            this.lb_titlepage.Name = "lb_titlepage";
-            this.lb_titlepage.Size = new System.Drawing.Size(73, 35);
-            this.lb_titlepage.TabIndex = 11;
-            this.lb_titlepage.Text = "Home ";
-            // 
-            // bunifuDragControl1
-            // 
-            this.bunifuDragControl1.Fixed = true;
-            this.bunifuDragControl1.Horizontal = true;
-            this.bunifuDragControl1.TargetControl = this.pn_topnav;
-            this.bunifuDragControl1.Vertical = true;
-            // 
             // btn_min
             // 
             this.btn_min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -258,6 +294,18 @@
             this.btn_min.Size = new System.Drawing.Size(40, 40);
             this.btn_min.TabIndex = 7;
             this.btn_min.Click += new System.EventHandler(this.btn_min_Click_1);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogOut.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.ImageOptions.Image")));
+            this.btnLogOut.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnLogOut.Location = new System.Drawing.Point(519, 0);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
+            this.btnLogOut.Size = new System.Drawing.Size(40, 40);
+            this.btnLogOut.TabIndex = 12;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btn_max
             // 
@@ -271,6 +319,16 @@
             this.btn_max.TabIndex = 8;
             this.btn_max.Click += new System.EventHandler(this.btn_max_Click);
             // 
+            // lb_titlepage
+            // 
+            this.lb_titlepage.AutoSize = true;
+            this.lb_titlepage.ForeColor = System.Drawing.Color.Silver;
+            this.lb_titlepage.Location = new System.Drawing.Point(248, 4);
+            this.lb_titlepage.Name = "lb_titlepage";
+            this.lb_titlepage.Size = new System.Drawing.Size(73, 35);
+            this.lb_titlepage.TabIndex = 11;
+            this.lb_titlepage.Text = "Home ";
+            // 
             // btn_colse
             // 
             this.btn_colse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -283,69 +341,12 @@
             this.btn_colse.TabIndex = 10;
             this.btn_colse.Click += new System.EventHandler(this.btn_colse_Click);
             // 
-            // btn_Users
+            // bunifuDragControl1
             // 
-            this.btn_Users.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Users.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.btn_Users.Appearance.Options.UseFont = true;
-            this.btn_Users.Appearance.Options.UseForeColor = true;
-            this.btn_Users.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Users.ImageOptions.Image")));
-            this.btn_Users.Location = new System.Drawing.Point(0, 395);
-            this.btn_Users.Name = "btn_Users";
-            this.btn_Users.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btn_Users.Size = new System.Drawing.Size(185, 33);
-            this.btn_Users.TabIndex = 8;
-            this.btn_Users.Text = "Users";
-            this.btn_Users.Click += new System.EventHandler(this.btn_Users_Click);
-            // 
-            // btn_Suppliers
-            // 
-            this.btn_Suppliers.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Suppliers.Appearance.ForeColor = System.Drawing.Color.Gray;
-            this.btn_Suppliers.Appearance.Options.UseFont = true;
-            this.btn_Suppliers.Appearance.Options.UseForeColor = true;
-            this.btn_Suppliers.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_Suppliers.ImageOptions.Image")));
-            this.btn_Suppliers.Location = new System.Drawing.Point(0, 239);
-            this.btn_Suppliers.Name = "btn_Suppliers";
-            this.btn_Suppliers.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btn_Suppliers.Size = new System.Drawing.Size(185, 33);
-            this.btn_Suppliers.TabIndex = 3;
-            this.btn_Suppliers.Text = "Suppliers";
-            this.btn_Suppliers.Click += new System.EventHandler(this.btn_Suppliers_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(16, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(101, 106);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_collapse
-            // 
-            this.btn_collapse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_collapse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btn_collapse.ImageOptions.Image")));
-            this.btn_collapse.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btn_collapse.Location = new System.Drawing.Point(3, 3);
-            this.btn_collapse.Name = "btn_collapse";
-            this.btn_collapse.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btn_collapse.Size = new System.Drawing.Size(36, 38);
-            this.btn_collapse.TabIndex = 7;
-            this.btn_collapse.Click += new System.EventHandler(this.btn_collapse_Click);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogOut.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
-            this.btnLogOut.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnLogOut.Location = new System.Drawing.Point(519, 0);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
-            this.btnLogOut.Size = new System.Drawing.Size(40, 40);
-            this.btnLogOut.TabIndex = 12;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            this.bunifuDragControl1.Fixed = true;
+            this.bunifuDragControl1.Horizontal = true;
+            this.bunifuDragControl1.TargetControl = this.pn_topnav;
+            this.bunifuDragControl1.Vertical = true;
             // 
             // Main
             // 
@@ -365,10 +366,10 @@
             this.pn_headernavbar.ResumeLayout(false);
             this.pn_titlenav.ResumeLayout(false);
             this.pn_titlenav.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.pn_topnav.ResumeLayout(false);
             this.pn_topnav.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

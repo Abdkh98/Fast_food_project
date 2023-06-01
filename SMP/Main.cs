@@ -168,5 +168,10 @@ namespace SMP
             login.Show();
             this.Hide();
         }
+
+        private void lblusername_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

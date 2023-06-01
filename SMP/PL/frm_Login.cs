@@ -70,9 +70,9 @@ password; 123
                     {
                         tb_users.User_State = "true";
                         db.Entry(tb_users).State = EntityState.Modified;
-                        main.lblusername.Text = tb_users.User_Name;
-                        main.lblRoll.Text = tb_users.User_Roll;
-                        main.Enabled = true;
+                        frm_casher.lblusername.Text = tb_users.User_Name;
+                        frm_casher.lblRoll.Text = tb_users.User_Roll;
+                        frm_casher.Enabled = true;
                         db.SaveChanges();
                         frm_casher.Show();
                         this.Hide();
